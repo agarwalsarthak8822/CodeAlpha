@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Portfolio - Alexander Scottish</title>
+    <meta name="description" content="Professional Developer and ICT Degree holder with five years experience in IT Sector as an ICT Lecturer">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Navigation */
+        .header {
+            background-color: #2c2c2c;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .tagline {
+            color: #ccc;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #4285f4;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        .hire-btn {
+            background-color: #4285f4;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .hire-btn:hover {
+            background-color: #3367d6;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-content h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #2c2c2c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .about-content h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #4285f4;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .download-btn {
+            background-color: #4285f4;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .download-btn:hover {
+            background-color: #3367d6;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #2c2c2c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .skill-category {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-category h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+        }
+
+        .skill-item {
+            background-color: #4285f4;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+        }
+
+        .service-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .experience-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline-item {
+            background-color: #f8f9fa;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            border-left: 5px solid #4285f4;
+        }
+
+        .timeline-item h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c2c2c;
+        }
+
+        .timeline-item .date {
+            color: #4285f4;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .timeline-item p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: #2c2c2c;
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #ddd;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #4285f4;
+        }
+
+        .contact-item p {
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1a1a1a;
+            padding: 30px 0;
+            text-align: center;
+            color: #ccc;
+        }
+
+        .footer p {
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .about-content h2 {
+                font-size: 32px;
+            }
+
+            .profile-img {
+                width: 250px;
+                height: 320px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .about-content h2 {
+                font-size: 24px;
+            }
+
+            .profile-img {
+                width: 200px;
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div>
+                <div class="logo">Online Portfolio</div>
+                <div class="tagline">Just another My Blog Site</div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about">ABOUT ME</a></li>
+                    <li><a href="#services">SERVICES</a></li>
+                    <li><a href="#skills">SKILL</a></li>
+                    <li><a href="#testimonial">TESTIMONIAL</a></li>
+                    <li><a href="#experience">EXPERIENCE</a></li>
+                    <li><a href="#works">WORKS</a></li>
+                    <li><a href="#blog">BLOG</a></li>
+                    <li><a href="#contact">CONTACT US</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Alexander Scottish</h1>
+                <p>Hi, I am a Professional Developer and ICT Degree holder. I have five years experience in IT Sector as an ICT Lecturer, I'd like...</p>
+                <a href="#contact" class="hire-btn">Hire Me</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=400" alt="Alexander Scottish" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=500" alt="Alexander Scottish">
+            </div>
+            <div class="about-content">
+                <h2>About Me</h2>
+                <h3>I Am Developer blends expertise with industry know-how to guide your next property development.</h3>
+                <p>Software Developers use software development languages and tools to write, edit, maintain, and test computer software. Software Developers follow the software development lifecycle (SDLC) to plan, design, build, test, and deploy software applications, ranging from websites and mobile applications to web applications and video games. In addition to creating new software, Software Developers improve and maintain the working order of existing software.</p>
+                <a href="#" class="download-btn">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="skills-container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <span class="skill-item">HTML5</span>
+                    <span class="skill-item">CSS3</span>
+                    <span class="skill-item">JavaScript</span>
+                    <span class="skill-item">React</span>
+                    <span class="skill-item">Vue.js</span>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend Development</h3>
+                    <span class="skill-item">Node.js</span>
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">PHP</span>
+                    <span class="skill-item">MySQL</span>
+                    <span class="skill-item">MongoDB</span>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">Docker</span>
+                    <span class="skill-item">AWS</span>
+                    <span class="skill-item">Figma</span>
+                    <span class="skill-item">Photoshop</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="services-container">
+            <h2 class="section-title">Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Web Development</h3>
+                    <p>Creating responsive and modern websites using latest technologies and best practices for optimal user experience.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Mobile App Development</h3>
+                    <p>Building native and cross-platform mobile applications for iOS and Android with stunning user interfaces.</p>
+                </div>
+                <div class="service-card">
+                    <h3>UI/UX Design</h3>
+                    <p>Designing beautiful and intuitive user interfaces that provide excellent user experience and engagement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="experience-container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Senior Software Developer</h3>
+                    <div class="date">2020 - Present</div>
+                    <p>Leading development team in creating scalable web applications and mentoring junior developers in modern development practices.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>ICT Lecturer</h3>
+                    <div class="date">2018 - 2020</div>
+                    <p>Teaching computer science and information technology courses at university level, focusing on programming and software development.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Full Stack Developer</h3>
+                    <div class="date">2016 - 2018</div>
+                    <p>Developed and maintained web applications using various technologies including React, Node.js, and database management systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <p>Let's work together on your next project. Get in touch to discuss your requirements.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <p>alexander.scottish@email.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Phone</h4>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Location</h4>
+                    <p>New York, USA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Alexander Scottish. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active class to navigation links on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = '#4285f4';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
