@@ -1,54 +1,193 @@
-.body {
-    background: #f4f4f4;
-    font-family: Arial, sans-serif;
+body {
+    background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .calculator {
-    width: 320px;
-    margin: 60px auto;
-    padding: 20px;
-    background: #222;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    width: 340px;
+    margin: 40px auto;
+    padding: 18px 18px 0 18px;
+    background: linear-gradient(135deg, #fffbe0 0%, #e0e7ff 100%);
+    border-radius: 16px;
+    border: 2px solid #b2bec3;
+    box-shadow: 0 8px 32px rgba(67,198,172,0.18);
+    position: relative;
+    transition: box-shadow 0.3s;
+}
+.calculator:hover {
+    box-shadow: 0 12px 40px 0 #43c6ac55;
 }
 .display {
-    background: #111;
-    color: #fff;
-    font-size: 2.5em;
+    background: #fff;
+    color: #222;
+    font-size: 2.2em;
     text-align: right;
-    padding: 20px 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    min-height: 50px;
-    overflow-x: auto;
+    padding: 20px 14px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    min-height: 48px;
+    border: 2px solid #b2bec3;
+    box-shadow: 0 2px 12px #43c6ac33, 0 0 8px #f8ffae55;
+    outline: none;
+    transition: box-shadow 0.3s, border 0.3s, background 0.3s, color 0.3s, transform 0.18s;
+    animation: displayPop 0.18s;
+}
+@keyframes displayPop {
+    0% { transform: scale(1.04); background: #e0e7ff; }
+    100% { transform: scale(1); background: #fff; }
 }
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    grid-template-rows: repeat(5, 60px);
+    gap: 12px;
+    margin-bottom: 18px;
 }
 .btn {
-    padding: 20px;
-    font-size: 1.2em;
+    font-size: 1.4em;
     border: none;
-    border-radius: 5px;
-    background: #333;
-    color: #fff;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #f8f8f8 0%, #e0e0e0 100%);
+    color: #222;
     cursor: pointer;
-    transition: background 0.2s;
+    box-shadow: 0 2px 8px #b2bec355;
+    outline: none;
+    user-select: none;
+    transition: background 0.18s, box-shadow 0.18s, transform 0.12s, color 0.18s;
+    font-family: inherit;
+    font-weight: 500;
+    position: relative;
 }
-.btn:hover {
-    background: #444;
+.btn:hover, .btn.active {
+    background: linear-gradient(180deg, #e0e7ff 0%, #f8ffae 100%);
+    box-shadow: 0 6px 18px #43c6ac55, 0 0 8px #f8ffae99;
+    color: #43c6ac;
+    transform: scale(1.08);
+    z-index: 2;
 }
-.operator {
-    background: #ff9500;
+.btn:focus {
+    outline: 2px solid #43c6ac;
+    box-shadow: 0 0 0 4px #43c6ac55;
+    z-index: 3;
+}
+/* Operator colors */
+.btn.operator[data-value="+"] {
+    background: linear-gradient(180deg, #4fc3f7 0%, #1976d2 100%);
     color: #fff;
+}
+.btn.operator[data-value="-"] {
+    background: linear-gradient(180deg, #ffb347 0%, #ff7043 100%);
+    color: #fff;
+}
+.btn.operator[data-value="*"] {
+    background: linear-gradient(180deg, #43e97b 0%, #38f9d7 100%);
+    color: #fff;
+}
+.btn.operator[data-value="/"] {
+    background: linear-gradient(180deg, #a18cd1 0%, #fbc2eb 100%);
+    color: #fff;
+}
+.operator.op-active {
+    box-shadow: 0 0 16px 2px #43c6accc, 0 2px 6px #43c6ac55;
+    border: 2.5px solid #fffbe6;
+    color: #222;
+    filter: brightness(1.15);
 }
 #clear {
-    background: #e74c3c;
+    background: linear-gradient(180deg, #ff7675 0%, #e17055 100%);
     color: #fff;
+    font-weight: bold;
+}
+#backspace {
+    background: linear-gradient(180deg, #636e72 0%, #b2bec3 100%);
+    color: #fff;
+    font-weight: bold;
 }
 #equals {
-    background: #27ae60;
+    background: linear-gradient(180deg, #00b894 0%, #00cec9 100%);
     color: #fff;
+    font-weight: bold;
+    font-size: 1.4em;
+    box-shadow: 0 4px 16px #00b89455;
     grid-column: span 4;
+    height: 60px;
+    border-radius: 12px;
+    font-size: 1.7em;
+    letter-spacing: 2px;
+    margin-top: 2px;
+}
+/* History styles */
+.history {
+    background: rgba(255,255,255,0.85);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #43c6ac22;
+    padding: 12px 14px 10px 14px;
+    margin-top: 18px;
+    max-width: 340px;
+    min-height: 40px;
+    max-height: 180px;
+    overflow-y: auto;
+}
+.history ul {
+    margin: 0;
+    padding: 0;
+    max-height: 140px;
+    overflow-y: auto;
+}
+.history li {
+    color: #1976d2;
+    font-size: 1.08em;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e0e7ff;
+    padding-bottom: 2px;
+    word-break: break-all;
+}
+.history li:last-child {
+    border-bottom: none;
+}
+.links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 1em;
+}
+.links a {
+    color: #0074d9;
+    text-decoration: underline;
+    font-size: 1em;
+    font-family: inherit;
+}
+@media (max-width: 480px) {
+    .calculator {
+        max-width: 98vw;
+        padding: 10px 2vw 0 2vw;
+    }
+    .display {
+        font-size: 1.1em;
+        padding: 10px 4px;
+    }
+    .buttons {
+        grid-template-rows: repeat(5, 40px);
+        gap: 7px;
+    }
+    .btn {
+        font-size: 1em;
+        padding: 0;
+    }
+    .history {
+        max-width: 98vw;
+        padding: 7px 4vw 7px 4vw;
+        font-size: 0.95em;
+        max-height: 110px;
+    }
+    .history ul {
+        max-height: 70px;
+    }
+    .links {
+        font-size: 0.9em;
+    }
 } 

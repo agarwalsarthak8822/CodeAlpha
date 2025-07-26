@@ -8,25 +8,27 @@
 </head>
 <body>
     <div class="calculator">
-        <div class="display" id="display">0</div>
-        <div class="buttons">
-            <button class="btn" data-value="7">7</button>
-            <button class="btn" data-value="8">8</button>
-            <button class="btn" data-value="9">9</button>
-            <button class="btn operator" data-value="/">&divide;</button>
-            <button class="btn" data-value="4">4</button>
-            <button class="btn" data-value="5">5</button>
-            <button class="btn" data-value="6">6</button>
-            <button class="btn operator" data-value="*">&times;</button>
-            <button class="btn" data-value="1">1</button>
-            <button class="btn" data-value="2">2</button>
-            <button class="btn" data-value="3">3</button>
-            <button class="btn operator" data-value="-">&minus;</button>
-            <button class="btn" data-value="0">0</button>
-            <button class="btn" data-value=".">.</button>
-            <button class="btn" id="clear">C</button>
-            <button class="btn operator" data-value="+">+</button>
-            <button class="btn" id="equals" style="grid-column: span 4;">=</button>
+        <div class="operation-display" id="operation-display" aria-label="Current operation" style="min-height: 24px; color: #43c6ac; font-size: 1.1em; text-align: right; margin-bottom: 2px;"></div>
+        <div class="display" id="display" role="region" aria-label="Calculator display">0</div>
+        <div class="buttons" role="group" aria-label="Calculator buttons">
+            <button class="btn" data-value="7" role="button" tabindex="0">7</button>
+            <button class="btn" data-value="8" role="button" tabindex="0">8</button>
+            <button class="btn" data-value="9" role="button" tabindex="0">9</button>
+            <button class="btn operator" data-value="/" role="button" tabindex="0">&divide;</button>
+            <button class="btn" data-value="4" role="button" tabindex="0">4</button>
+            <button class="btn" data-value="5" role="button" tabindex="0">5</button>
+            <button class="btn" data-value="6" role="button" tabindex="0">6</button>
+            <button class="btn operator" data-value="*" role="button" tabindex="0">&times;</button>
+            <button class="btn" data-value="1" role="button" tabindex="0">1</button>
+            <button class="btn" data-value="2" role="button" tabindex="0">2</button>
+            <button class="btn" data-value="3" role="button" tabindex="0">3</button>
+            <button class="btn operator" data-value="-" role="button" tabindex="0">&minus;</button>
+            <button class="btn" data-value="0" role="button" tabindex="0">0</button>
+            <button class="btn" data-value="." role="button" tabindex="0">.</button>
+            <button class="btn" id="backspace" aria-label="Backspace" role="button" tabindex="0">⌫</button>
+            <button class="btn" id="clear" aria-label="Clear" role="button" tabindex="0">C</button>
+            <button class="btn operator" data-value="+" aria-label="Add" role="button" tabindex="0">+</button>
+            <button class="btn" id="equals" aria-label="Equals" role="button" tabindex="0">=</button>
         </div>
     </div>
     <script src="Calculater.js"></script>
